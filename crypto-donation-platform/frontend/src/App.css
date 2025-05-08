@@ -1,0 +1,10 @@
+.form-group {
+  margin: 15px 0;
+}
+label {
+  margin-right: 10px;
+}
+select, input {
+  padding: 8px;
+  width: 120px;
+}
