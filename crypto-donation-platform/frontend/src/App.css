@@ -1,10 +1,333 @@
-.form-group {
-  margin: 15px 0;
+/* Robotic Theme for Crypto Donation Website */
+
+/* Import Roboto Mono font for a tech/code look */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap');
+
+:root {
+  --primary-color: #00f2ff;
+  --secondary-color: #0cce6b;
+  --bg-color: #161b22;
+  --dark-accent: #0d1117;
+  --light-accent: #30363d;
+  --text-color: #e6edf3;
+  --highlight: #ff3860;
+  --success: #00c853;
+  --warning: #ffc400;
 }
-label {
-  margin-right: 10px;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-select, input {
-  padding: 8px;
+
+body {
+  font-family: 'Roboto Mono', monospace;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  background-image: 
+    radial-gradient(circle at 25px 25px, var(--light-accent) 2px, transparent 0),
+    radial-gradient(circle at 75px 75px, var(--light-accent) 2px, transparent 0);
+  background-size: 100px 100px;
+  padding: 150px;
+}
+
+.app {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: var(--dark-accent);
+  border-radius: 8px;
+  border: 1px solid var(--light-accent);
+  box-shadow: 0 0 30px rgba(0, 242, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.app::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  z-index: 1;
+}
+
+.app::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(0, 242, 255, 0.1) 0%, transparent 70%);
+  z-index: 0;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--primary-color);
+  font-size: 2.2rem;
+  text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+  letter-spacing: 1px;
+  position: relative;
+}
+
+h1::after {
+  content: "";
+  display: block;
   width: 120px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+  margin: 12px auto 0;
+}
+
+button {
+  background: linear-gradient(135deg, var(--dark-accent), var(--light-accent));
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  padding: 12px 20px;
+  border-radius: 4px;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 10px 0;
+  display: block;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  text-shadow: 0 0 5px rgba(0, 242, 255, 0.5);
+  box-shadow: 0 0 10px rgba(0, 242, 255, 0.2);
+}
+
+button:hover {
+  background: linear-gradient(135deg, var(--light-accent), var(--dark-accent));
+  box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  animation: pulse 2s infinite;
+  opacity: 0;
+}
+
+button:hover::before {
+  opacity: 1;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+}
+
+.form-group {
+  margin: 20px 0;
+  position: relative;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--primary-color);
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px 15px;
+  background-color: var(--dark-accent);
+  border: 1px solid var(--light-accent);
+  border-radius: 4px;
+  color: var(--text-color);
+  font-family: 'Roboto Mono', monospace;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 10px rgba(0, 242, 255, 0.3);
+}
+
+input::placeholder {
+  color: var(--light-accent);
+}
+
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2300f2ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 16px;
+  padding-right: 40px;
+}
+
+p {
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: var(--dark-accent);
+  border-left: 3px solid var(--primary-color);
+  min-height: 50px;
+  word-break: break-all;
+  position: relative;
+}
+
+p:empty {
+  display: none;
+}
+
+p:not(:empty)::before {
+  content: "STATUS";
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  background-color: var(--dark-accent);
+  padding: 0 5px;
+  font-size: 10px;
+  color: var(--primary-color);
+}
+
+p:not(:empty) {
+  margin-top: 30px;
+}
+
+p[innerText*="✅"] {
+  border-left-color: var(--success);
+}
+
+p[innerText*="❌"] {
+  border-left-color: var(--highlight);
+}
+
+/* Circuit Board Pattern Background for ETH donation */
+.app::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(var(--dark-accent) 1px, transparent 1px),
+    linear-gradient(90deg, var(--dark-accent) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.05;
+  z-index: -1;
+}
+
+/* Glowing effect on connect wallet button */
+button:first-of-type {
+  position: relative;
+  overflow: hidden;
+}
+
+button:first-of-type::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(45deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% {
+    transform: rotate(45deg) translateX(-100%);
+  }
+  100% {
+    transform: rotate(45deg) translateX(100%);
+  }
+}
+
+/* Animation for Donate button */
+button:last-of-type {
+  background: linear-gradient(135deg, var(--dark-accent), var(--light-accent));
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+button:last-of-type::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 242, 255, 0.2),
+    transparent
+  );
+  transition: left 0.7s;
+  z-index: -1;
+}
+
+button:last-of-type:hover::before {
+  left: 100%;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .app {
+    padding: 20px;
+    margin: 10px;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  button {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+  
+  input, select {
+    padding: 10px;
+    font-size: 14px;
+  }
 }
